@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--main-clr), var(--main-clr) 45%, #00008b 45%, #00008b 50%, #00008b 55%, var(--main-clr) 55%, var(--main-clr));
+  background-attachment: fixed;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}

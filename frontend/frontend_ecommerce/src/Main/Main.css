@@ -1,0 +1,288 @@
+.ecommerce__main {
+    margin-top: 71px;
+}
+.ecommerce__main .container {
+    flex-direction: column;
+}
+.ecommerce__main-container {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+.ecommerce__main-filter {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    text-transform: uppercase;
+    gap: .25em;
+}
+.ecommerce__main-filter label {
+    text-align: center;
+}
+.ecommerce__main-filter .filter__container input {
+    border-radius: inherit;
+}
+.ecommerce__main-filter_ {
+    text-transform: uppercase;
+}
+.filter__container {
+    position: relative;
+    border-radius: 19px;
+}
+.filter__container input {
+    border-radius: 19px 0 0 19px;
+    height: 100%;
+}
+.filter__container ul {
+    margin-top: 1.5rem;
+    background: #fff;
+    position: absolute;
+    z-index: 5;
+    border-radius: 19px;
+    width: 100%;
+    overflow: hidden;
+    transition: .3s;
+    box-shadow: 0 0 10px #0004;
+}
+.filter__container ul li {
+    padding: 10px 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.filter__container ul li:hover {
+    background-color: #2196f3;
+    color: #fff;
+}
+.error_type {
+    position: absolute;
+    color: red;
+    font-weight: 600;
+    left: .5rem;
+    background: #fff8;
+    padding: .15rem .5rem;
+    border-radius: 12px;
+}
+input {
+    outline: 0;
+}
+.ecommerce__main-query {
+    display: flex;
+    border: 1px solid;
+    border-radius: 19px;
+    position: relative;
+}
+.ecommerce__main-query_input {
+    outline: none;
+    border: none;
+    padding: .5em .75em;
+    background: #e9e9ed;
+    box-shadow: inset 0 0 2px 0 #777;
+}
+.ecommerce__main-query_options {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    padding: .25em;
+    border: none;
+    text-align: center;
+}
+.ecommerce__main-query i {
+    cursor: pointer;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25em 1em;
+    background: #c5c5c5;
+    border-radius: 0 19px 19px 0;
+}
+.ecommerce__main-query .fa-remove {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 100%;
+    background: #0000;
+}
+.btns {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+}
+.btns > * {
+    background-color: var(--i, #00a600);
+    border: none;
+    border-radius: .25rem;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    padding: .75em 1.5em;
+    transition: .1s;
+}
+.btns button:active {
+    transform: scale(.95);
+}
+.ecommerce__main-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.ecommerce__main .item {
+    background-color: #fff;
+    border-radius: .25rem;
+    overflow: hidden;
+    box-shadow: 0 0 .25rem 0 #777;
+    cursor: pointer;
+    padding: 1em 1em 0 1em;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.ecommerce__main .item.p {
+    padding-bottom: 1em;
+}
+.ecommerce__main .item input[type=checkbox] {
+    display: none;
+}
+.ecommerce__main .item label {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    z-index: 2;
+}
+.ecommerce__main .item input[type=checkbox]:checked ~ label::before {
+    content: '\f00c';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: orangered;
+}
+.ecommerce__main .item.active {
+    box-shadow: 0 0 .5rem 0 #000;
+}
+.ecommerce__main .img {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    position: relative;
+}
+.ecommerce__main .img::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(45deg, red, lightblue, red);
+}
+.ecommerce__main .item img {
+    width: 100%;
+}
+.ecommerce__main .info {
+    padding: 1em .25em;
+    direction: ltr;
+    position: relative;
+}
+.info a {
+    color: #fff;
+}
+.info span {
+    margin-right: .5em;
+    font-weight: 600;
+}
+.info > span:last-of-type {
+    display: block;
+}
+.ecommerce__main .title {
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.time {
+    word-break: break-all;
+}
+.time span {
+    white-space: nowrap;
+}
+.clients {
+    width: 268px;
+    white-space: nowrap;
+    overflow: auto;
+    padding-bottom: 10px;
+    margin-bottom: 0 !important;
+}
+.clients a {
+    margin-right: .5rem;
+    border-right: 2px solid;
+    padding-right: .2em;
+}
+.ecommerce__main .price {
+    font-size: 1.1em;
+    font-weight: 500;
+    display: block;
+    width: fit-content;
+    transform: translate(50%);
+}
+.description {
+    overflow: auto;
+    padding: .7em 1em;
+    background: #0002;
+    border-radius: .25em;
+    height: 50.5px;
+    line-height: 1.7;
+    margin: 10px 0 0 !important;
+}
+.ecommerce__main .number {
+    position: absolute;
+    right: .25em;
+    top: 1em;
+}
+.ecommerce__main .number input {
+    outline: 0;
+    padding-left: 2px;
+}
+.ecommerce__main .item .more {
+    color: #2196f3;
+    font-size: .8em;
+    text-transform: capitalize;
+    font-weight: 600;
+    position: relative;
+    padding: 1em .5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid#777;
+}
+.ecommerce__main .item .more::before,
+.ecommerce__main .item .more::after {
+    content: "";
+    transform: rotate(-45deg);
+    width: 13px;
+    height: 2px;
+    background: #2196f3;
+    position: absolute;
+    right: .5em;
+    transition: .3s;
+}
+.ecommerce__main .item .more::before {
+    transform: rotate(45deg);
+    right: calc(.5em + 8px);
+}
+.ecommerce__main .item .more.active::before {
+    right: .5em;
+}
+.ecommerce__main .item .more.active::after {
+    right: calc(.5em + 8px);
+}
+.center {
+    margin: auto;
+}
+@media ( max-width: 991px ) {
+    .ecommerce__main-container {
+        justify-content: center;
+        gap: 1rem;
+    }
+}

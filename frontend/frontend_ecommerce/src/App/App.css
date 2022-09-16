@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-color: #000 #fff;
+  scrollbar-width: thin;
+}
+:root {
+  --clr: #ffe033;
+  --main-clr: #f78307;
+}
+html {
+  scroll-behavior: smooth;
+}
+.container {
+  max-width: 990px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 1em;
+  padding-bottom: 2em;
+  position: relative;
+}
+.hidden {
+  display: none;
+  margin: .25rem;
+}
+@media (max-width: 991px) {
+  .container {
+    max-width: 766px;
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    max-width: 564px;
+  }
+}
+.error,
+.succ {
+  position: fixed;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  padding: 1.5em 2em;
+  font-weight: 600;
+  transition: .15s all 0s;
+  opacity: 0;
+  visibility: hidden; 
+  font-size: 1.2em;
+  text-transform: capitalize;
+  line-height: 1.7;
+  color: #fff;
+  z-index: 10;
+  text-align: center;
+}
+.error.active,
+.succ.active {
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  transition: .15s all .15s;
+}
+.error {
+  background-color: #ec1227df;
+  border: 2px solid #ec1227;
+}
+.succ {
+  background-color: #04f13aaf;
+  border: 2px solid #04f13a;
+}
+.load {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 71px);
+  background-color: #fff;
+  z-index: 5;
+}
+.load::before,
+.load::after {
+  content: "";
+  padding: 3em;
+  border-radius: 50%;
+  border: 14px solid transparent;
+  border-bottom-color: var(--main-clr);
+  animation: right 1.5s linear infinite;
+  position: absolute;
+}
+.load::after {
+  animation-duration: 3s;
+}
+@keyframes right {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.user .ecommerce__main-products {
+  grid-template-columns: 142px 142px;
+  margin-bottom: -10rem;
+}
+.user .ecommerce__main-products .item {
+  padding: .5em 1.75em;
+  border: 2px solid #777;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(0deg, #fff6, #fff2 40%, #fff2 60%, #fff6);;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+.user .ecommerce__main-products .item:hover {
+  background-color: #fff2;
+}

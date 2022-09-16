@@ -1,0 +1,205 @@
+.contact .container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100%;
+    width: 100%;
+}
+.buy .links_contact {
+    display: flex;
+    background: linear-gradient(0deg, #fff6, #fff2 40%, #fff2 60%, #fff6);
+    width: fit-content;
+}
+.buy .links_contact a {
+    padding: .75em;
+    border: 2px solid #0000;
+    border-top: 3px solid #20f0;
+    border-bottom: none;
+    cursor: pointer;
+}
+.buy .links_contact a.active {
+    border-color: #777;
+}
+.buy .emails .only {
+    position: absolute;
+    bottom: 1.75em;
+    right: 1.75em;
+    background: #fff8;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    border-radius: 24px;
+    padding: .75em 1.5em;
+    box-shadow: 2px 2px 2px #0004;
+    z-index: 1;
+    cursor: pointer;
+}
+.buy .links_contact .only:active {
+    transform: translateY(2px);
+}
+.buy__form-input.maybe {
+    margin-bottom: 2rem;
+}
+.container .buy__form-input {
+    width: 100%;
+}
+.container .buy__form-input input,
+.container .buy__form-input textarea {
+    width: 100%;
+}
+.buy__form-input label {
+    left: 10px;
+}
+.buy__form-input input:focus+label,
+.user__form-input input:focus+label,
+.buy__form-input input:valid+label,
+.user__form-input input:valid+label {
+    left: 6px;
+}
+.buy textarea {
+    margin-top: 2rem;
+    padding: .75em;
+    outline: none;
+    border: 1.5px solid #fff9;
+    font-size: 14px;
+    border-radius: .25rem;
+    background: #fff0;
+    caret-color: #fff;
+    color: #fff;
+    height: 10rem;
+    resize: none;
+}
+.buy textarea + label {
+    position: absolute;
+    top: 27%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+.buy textarea:focus+label,
+.buy textarea:valid+label {
+    top: 11%;
+    left: 6px;
+    font-size: 14px;
+}
+.buy .container > div:not(.links_contact) {
+    flex: 1;
+    background: #fff6;
+    border: 2px solid #777;
+    overflow: auto;
+    max-height: 431px;
+    position: relative;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #fff;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #000;
+}
+.buy .container .email {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.buy .container .email > div:first-child {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid;
+    background-color: #fff8;
+}
+.buy .container .email img {
+    width: 85.9px;
+}
+.buy .container .email .head {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+    align-items: center;
+    border-bottom: 1px solid #777;
+    background: #fff8;
+    width: 100%;
+}
+.buy .container .email p {
+    flex: 1;
+    padding: 1.5em;
+    overflow-y: auto;
+    line-height: 1.7;
+    word-break: break-word;
+}
+.buy .container .email button {
+    padding: 0.75em 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+    left: 1.75em;
+    bottom: 1.75em;
+    border-radius: 24px;
+    border: 0;
+    font-weight: 700;
+    box-shadow: 2px 2px 2px #0004;
+    cursor: pointer;
+}
+.buy .container .item {
+    padding: .5em .75em;
+    border-bottom: 1px solid #555;
+    background-color: #fff9;
+    cursor: pointer;
+    position: relative;
+}
+.buy .container .item.active::before {
+    content: "*";
+    position: absolute;
+    right: .25em;
+    font-size: 20px;
+    top: 0;
+}
+.buy .container .item .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buy .container .head h2 {
+    font-size: 16px;
+    margin-bottom: .5rem;
+    font-weight: 600;
+}
+.buy .container .item.active .head h2 {
+    font-weight: 700;
+}
+.buy .container .head h3 {
+    font-size: 12px;
+    padding-left: .5rem;
+    font-weight: 400;
+}
+.buy .container .item.active .head h3 {
+    font-weight: 700;
+}
+.buy .container .head span {
+    font-style: italic;
+    font-weight: normal;
+    font-size: 12px;
+}
+.buy .container .item.active .head span {
+    font-weight: 700;
+}
+.buy .container .head i {
+    cursor: pointer;
+    width: 25px;
+    text-align: center;
+    background: #0000;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+.buy .container .head i:hover {
+    background: #0004;
+}
+.buy .container .item.active {
+    font-weight: 700;
+}
