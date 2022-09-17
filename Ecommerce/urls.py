@@ -3,8 +3,8 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-urlpatterns = [
+urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('eacdommimnerce/', admin.site.urls),
     path('api/', include("api.urls")),
     path('', include("frontend.urls")),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
