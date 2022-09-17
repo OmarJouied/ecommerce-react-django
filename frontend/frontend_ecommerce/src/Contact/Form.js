@@ -7,6 +7,7 @@ const Form = ({ setSend, setForm, to, setItem, item, back, setEmails, emails }) 
     const [to_, setTo_] = useState(to);
     const [list, setList] = useState();
     const setD = useContext(share).setD;
+    const csrf = useContext(share).csrf;
     const superUser = useContext(share).superUser[0];
 
     function valid() {
@@ -19,6 +20,7 @@ const Form = ({ setSend, setForm, to, setItem, item, back, setEmails, emails }) 
         mail.append('to', to_);
         mail.append('subject', subject);
         mail.append('content', content);
+        mail.append("csrfmiddlewaretoken", csrf);
         fetch('/api/email/',{
             method: 'POST',
             body: mail

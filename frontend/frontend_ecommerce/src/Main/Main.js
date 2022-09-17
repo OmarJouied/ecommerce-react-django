@@ -45,8 +45,6 @@ const Main = () => {
         setInput('');
     }
 
-    console.log(select);
-
     return (
         <main className='ecommerce__main'>
             <div className='container'>

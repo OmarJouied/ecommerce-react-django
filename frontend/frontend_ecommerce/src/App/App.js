@@ -37,6 +37,7 @@ function App() {
   });
   const [cat, setCat] = useState('');
   const [length, setLength] = useState();
+  const csrf = document.cookie.split('=')[1];
 
   function fetchLogin() {
         fetch('/api/log')
@@ -147,7 +148,8 @@ function App() {
                              fetchLogin,
                              cat,
                              length: [length, setLength],
-                             path: path
+                             path: path,
+                             csrf
                           }}>
       <Header />
       <Message d={d} />

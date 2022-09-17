@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#-7*9jbq7^43#*d+mog%(=_j-5%+&iya@x3h7wti(!%298$%m4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["ecommerce-react-django.herokuapp.com", '127.0.0.1']
 
 
 # Application definition
@@ -39,26 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'frontend',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-]
-
-CORS_ALLOW_ALL_ORIGINS = True
-
-CORS_ORIGIN_WHTIELIST = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'http://127.0.0.1:3',
 ]
 
 ROOT_URLCONF = 'Ecommerce.urls'

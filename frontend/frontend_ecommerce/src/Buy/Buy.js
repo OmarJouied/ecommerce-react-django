@@ -3,11 +3,13 @@ import { share } from '../App/App';
 import './Buy.css';
 
 const Buy = () => {
-    const [select, setSelect]  = useContext(share).select;
-    const setPath = useContext(share).setPath;
+    const context = useContext(share);
+    const [select, setSelect]  = context.select;
+    const setPath = context.setPath;
     const [input, setInput] = useState('');
     const [url, setUrl] = useState('');
-    const setD = useContext(share).setD;
+    const setD = context.setD;
+    const csrf = context.csrf;
     if ( !select.length ) {
         setPath('/');
     }
@@ -21,6 +23,7 @@ const Buy = () => {
         form.append('ids', JSON.stringify(select));
         form.append("address", input || url);
         form.append("method", 'PUT');
+        form.append("csrfmiddlewaretoken", csrf);
         fetch('/api/', {
             method: 'POST',
             body: form

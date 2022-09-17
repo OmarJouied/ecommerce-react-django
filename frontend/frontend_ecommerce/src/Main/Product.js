@@ -6,11 +6,10 @@ const Product = ({ item, setItem, select, check, setSelect, setData, setForm }) 
     let selected = 0;
     if (select) {
         selected = select.find(i => i.id === item.id);
-        console.log(selected);
-        console.log(select);
     }
     const setD = useContext(share).setD;
     const cat = useContext(share).cat;
+    const csrf = useContext(share).csrf;
     const [show, setShow] = useState(true);
     const [ele, setEle] = useState('');
     let counter = '';
@@ -33,6 +32,7 @@ const Product = ({ item, setItem, select, check, setSelect, setData, setForm }) 
                 if(item.owner){
                 form.append('method', 'DELETE');
                 form.append('id', id);}
+                form.append("csrfmiddlewaretoken", csrf);
                 fetch(`/api/${item.owner ?'':'history/'}`, {
                     method: item.owner ? 'POST':'DELETE',
                     body: item.owner ? form : JSON.stringify({id})
@@ -79,7 +79,7 @@ const Product = ({ item, setItem, select, check, setSelect, setData, setForm }) 
                         <label htmlFor="choise"></label></>}
                     <div className='img'>
                         {
-                            item.image?.map(img => <img key={img} src={`http://127.0.0.1${img}`} alt={`${item.title} image`} />)
+                            item.image?.map(img => <img key={img} src={img} alt={`${item.title} image`} />)
                         }
                     </div>
                     <div className='arrow'>

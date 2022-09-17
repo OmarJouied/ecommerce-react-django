@@ -22,7 +22,7 @@ function Email({ email, mailClicked, back, className, onClick, setForm, setTo, i
             {show &&
                 <div title={!item && ((email.to?email.see?'read':'unread':email.see?'old':'new')+` message`)} className={className} onClick={click}>
                     <div>
-                        {email.image && (<img src="" alt="" />)}
+                        {email.image && (<img src={email.image} alt="" />)}
                         <div className="head">
                             <div>
                                 <h2>{email.to ? <><b style={{ fontSize: '18px' }}>To:</b> {email.to}</> : <><b style={{ fontSize: '18px' }}>From:</b> {email.from}</>}</h2>

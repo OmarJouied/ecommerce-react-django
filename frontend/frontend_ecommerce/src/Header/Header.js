@@ -7,6 +7,7 @@ const Header = () => {
     const yes = context.select[0];
     const login = context.login[0];
     const setD = context.setD;
+    const csrf = context.csrf;
     const setLogin = context.login[1];
     const setSuperUser = context.superUser[1];
     const [length, setLength] = context.length;
@@ -27,6 +28,7 @@ const Header = () => {
         const data = new FormData();
         data.append('method', 'PUT');
         data.append('out', true);
+        data.append("csrfmiddlewaretoken", csrf);
         fetch('/api/log', {
             method: 'POST',
             body: data

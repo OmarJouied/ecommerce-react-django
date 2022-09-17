@@ -5,6 +5,7 @@ import Back from '../Contact/Back';
 function Form({ item, setForm, setData }) {
     const setD = useContext(share).setD;
     const list = useContext(share).cat;
+    const csrf = useContext(share).csrf;
     const setPath = useContext(share).setPath;
     const [data1, setData1] = useState({
         id: item?.id ?? '',
@@ -34,6 +35,7 @@ function Form({ item, setForm, setData }) {
         form.append("description", data1.description);
         form.append("min_order", data1.min_order);
         form.append("unit", data1.unit);
+        form.append("csrfmiddlewaretoken", csrf);
         for (const f of data1.file) {
             form.append('image', f);
         }

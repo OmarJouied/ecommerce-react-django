@@ -8,6 +8,7 @@ const Contact = () => {
     const [send, setSend] = useState(false); // send = true => type = send
     const [form, setForm] = useState(false);
     const setD = useContext(share).setD;
+    const csrf = useContext(share).csrf;
     const setLength = useContext(share).length[1];
     const [item, setItem] = useState(false);
     const [emails, setEmails] = useState({
@@ -44,23 +45,26 @@ const Contact = () => {
     function change(e, id) {
         if (!e.target.classList.contains('fas')) {
             const email = (send ? emails.sender : emails.receive).find(email => email.id === id);
-            if (!send && !email.see) {
-                setLength(prev => prev - 1);
-            }
             if (email.content) {
                 setItem(true);
                 setEmail(email);
                 return;
             }
-            const i = send ? "" : email.see = true;
             (send ? fetch(`/api/email/?type=send&id=${id}`) : fetch('/api/email/', {
+                headers: {
+                    'X-CSRFToken': csrf
+                },
+                mode: 'same-origin',
                 method: 'PUT',
                 body: JSON.stringify({ id })
             }))
                 .then(r => r.json())
                 .then(r => {
+                    if ((send ? "" : email.see = true) && !send) {
+                        setLength(prev => prev - 1);
+                    }
                     setItem(true);
-                    email.content = r.content
+                    email.content = r.content;
                     setEmail(email);
                 })
                 .catch(e => console.log(e));
@@ -74,6 +78,10 @@ const Contact = () => {
 
     function deleteMail(id) {
         fetch('/api/email/', {
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            mode: 'same-origin',
             method: 'DELETE',
             body: JSON.stringify({ id })
         })

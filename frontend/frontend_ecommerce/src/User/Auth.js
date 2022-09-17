@@ -4,6 +4,7 @@ import { share } from '../App/App';
 function Auth() {
     const [signup, setSignup] = useState(false);
     const setD = useContext(share).setD;
+    const csrf = useContext(share).csrf;
     const fetchLogin = useContext(share).fetchLogin;
     const [form, setForm] = useState({
         email: '',
@@ -31,6 +32,7 @@ function Auth() {
         data.append('username', form.username);
         data.append('password', form.password);
         data.append('confirm', form.confirm);
+        data.append("csrfmiddlewaretoken", csrf);
         fetch('/api/log', {
             method: 'POST',
             body: data

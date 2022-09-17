@@ -19,7 +19,7 @@ function Show({ show, setShow }) {
         } else if (path.match(/^\/user\/products\/?$/)) {
             setForm(false)
         }
-        if (!data.length) {
+        if (!data.length && path === window.location.pathname) {
             const t = show ? `?see=''` : 'history/';
             setPath(`/user/${show?'products':'history'}/`);
             fetch(`/api/${t}`)
