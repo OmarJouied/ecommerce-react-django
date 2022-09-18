@@ -98,11 +98,11 @@ const Product = ({ item, setItem, select, check, setSelect, setData, setForm }) 
                                     <p className='piece'><span>rest:</span>{item.piece}{item.unit}</p>
                                     <p className='category'><span>category:</span>{category[1]}</p>
                                     <p className='unit'><span>unit:</span>{item.unit}</p>
-                                    <p className='count'><span>Number of purchases:</span>{item.count}</p>
+                                    <p className='count'><span>Times To Buy:</span>{item.count}</p>
                                     {item.count > 0 && item.clients && <div className='clients'>
                                         <span>clients:</span>
                                         {
-                                            item.clients.map(client => <a href={`/user/${client}`}>{client}</a>)
+                                            [...(new Set(item.clients))].map(client => <a href={`/user/${client}`}>{client}</a>)
                                         }
                                     </div>}
                                     <p className="time"><span>Added Date:</span>{item.datetime}</p>
