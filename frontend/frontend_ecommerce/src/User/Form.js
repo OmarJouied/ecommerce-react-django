@@ -35,12 +35,15 @@ function Form({ item, setForm, setData }) {
         form.append("description", data1.description);
         form.append("min_order", data1.min_order);
         form.append("unit", data1.unit);
-        form.append("csrfmiddlewaretoken", csrf);
         for (const f of data1.file) {
             form.append('image', f);
         }
 
         fetch('/api/', {
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            mode: 'same-origin',
             method: 'POST',
             body: form
         })

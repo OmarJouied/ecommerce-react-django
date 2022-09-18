@@ -32,8 +32,11 @@ const Product = ({ item, setItem, select, check, setSelect, setData, setForm }) 
                 if(item.owner){
                 form.append('method', 'DELETE');
                 form.append('id', id);}
-                form.append("csrfmiddlewaretoken", csrf);
                 fetch(`/api/${item.owner ?'':'history/'}`, {
+                    headers: {
+                        'X-CSRFToken': csrf
+                    },
+                    mode: 'same-origin',
                     method: item.owner ? 'POST':'DELETE',
                     body: item.owner ? form : JSON.stringify({id})
                 }).then(r => r.json())

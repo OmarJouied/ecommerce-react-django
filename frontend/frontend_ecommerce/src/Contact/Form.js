@@ -20,8 +20,11 @@ const Form = ({ setSend, setForm, to, setItem, item, back, setEmails, emails }) 
         mail.append('to', to_);
         mail.append('subject', subject);
         mail.append('content', content);
-        mail.append("csrfmiddlewaretoken", csrf);
         fetch('/api/email/',{
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            mode: 'same-origin',
             method: 'POST',
             body: mail
         })

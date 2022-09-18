@@ -23,8 +23,11 @@ const Buy = () => {
         form.append('ids', JSON.stringify(select));
         form.append("address", input || url);
         form.append("method", 'PUT');
-        form.append("csrfmiddlewaretoken", csrf);
         fetch('/api/', {
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            mode: 'same-origin',
             method: 'POST',
             body: form
         })

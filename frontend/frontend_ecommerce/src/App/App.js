@@ -37,7 +37,7 @@ function App() {
   });
   const [cat, setCat] = useState('');
   const [length, setLength] = useState();
-  const csrf = document.cookie.split('=')[1];
+  const csrf = document.cookie.split(';').find(i => i.startsWith('csrftoken=')).split('=')[1];
 
   function fetchLogin() {
         fetch('/api/log')

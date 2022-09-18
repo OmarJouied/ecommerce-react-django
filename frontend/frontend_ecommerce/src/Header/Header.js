@@ -28,8 +28,11 @@ const Header = () => {
         const data = new FormData();
         data.append('method', 'PUT');
         data.append('out', true);
-        data.append("csrfmiddlewaretoken", csrf);
         fetch('/api/log', {
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            mode: 'same-origin',
             method: 'POST',
             body: data
         })

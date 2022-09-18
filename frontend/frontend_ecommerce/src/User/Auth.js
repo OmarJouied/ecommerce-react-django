@@ -32,8 +32,11 @@ function Auth() {
         data.append('username', form.username);
         data.append('password', form.password);
         data.append('confirm', form.confirm);
-        data.append("csrfmiddlewaretoken", csrf);
         fetch('/api/log', {
+            headers: {
+                'X-CSRFToken': csrf
+            },
+            mode: 'same-origin',
             method: 'POST',
             body: data
         })
