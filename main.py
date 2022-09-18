@@ -1,4 +1,5 @@
 try:
-    print(1/0)
+    import os
+    os.remove('./omar.gf')
 except Exception as e:
-    print(e)
+    print(str(e))

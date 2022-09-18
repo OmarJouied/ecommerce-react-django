@@ -195,7 +195,7 @@ def api(request):
                         message = 'Deleted Successfully'
                         error = 0
                 except Exception as e:
-                    message = e
+                    message = str(e)
                     error = 1
                 return JsonResponse({
                             'message': message,
@@ -407,7 +407,7 @@ def emails(request):
             message = 'Your Mail Deleted Successfully!'
             error = 0
         except Exception as e:
-            message = f'Error: { e }'
+            message = f'Error: { str(e) }'
             error = 1
         
     return JsonResponse({
@@ -424,7 +424,7 @@ def history(request):
             message = 'Deleted Successfully'
             error = 0
         except Exception as e:
-            message = f'Deleted Failed: {e}'
+            message = f'Deleted Failed: {str(e)}'
             error = 1
         return JsonResponse({
             'message': message,
