@@ -194,8 +194,8 @@ def api(request):
                         p.delete()
                         message = 'Deleted Successfully'
                         error = 0
-                except:
-                    message = 'Some Errors in Deleted this Product'
+                except Exception as e:
+                    message = e
                     error = 1
                 return JsonResponse({
                             'message': message,
@@ -423,8 +423,8 @@ def history(request):
             hist.delete()
             message = 'Deleted Successfully'
             error = 0
-        except:
-            message = 'Deleted Failed'
+        except Exception as e:
+            message = f'Deleted Failed: {e}'
             error = 1
         return JsonResponse({
             'message': message,
