@@ -21,6 +21,7 @@ const Message = ({ d }) => {
   return <div className={`${d.error ? "error" : "succ"} ${type}`}>{d.message.split('.').map(item => <>{item}<br /></>)}</div>;
 }
 let stop = 0;
+let log;
 
 function App() {
   const [load, setLoad] = useState(1);
@@ -53,16 +54,18 @@ function App() {
   }
 
   function Fetch(e = '') {
-    if ( stop !== e ) {
-      fetch(`/api/?${e}`)
-        .then(r => r.json())
-        .then(r => {
-          setShow(r);
-          setLoad(0);
-          return setData(r.length ? r : [1]);
-        })
-        .catch(e => console.log(e));
-        stop = e;
+    if ( stop !== e || !log !== !login ) {
+      log = login;
+      if (log !== undefined)
+        fetch(`/api/?${e}`)
+          .then(r => r.json())
+          .then(r => {
+            setShow(r);
+            setLoad(0);
+            return setData(r.length ? r : [1]);
+          })
+          .catch(e => console.log(e));
+      stop = e;
     }
   }
 

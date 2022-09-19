@@ -56,7 +56,7 @@ def api(request):
                 return JsonResponse(Product.choices, safe=False)
             Products = []
             if category := request.GET.get('category'):
-                Products = Product.objects.exclude(piece=0).filter(category=category)
+                Products = Product.objects.exclude(piece=0).exclude(owner=request.user).filter(category=category)
                 if not Products:
                     return JsonResponse({
                         'message': 'No Product in this Category.',
@@ -66,7 +66,7 @@ def api(request):
                 if Products:
                     Products = Products.filter(title__icontains=title)
                 else:
-                    Products = Product.objects.filter(title__icontains=title)
+                    Products = Product.objects.exclude(piece=0).exclude(owner=request.user).filter(title__icontains=title)
         
         products = []
         for product in Products:
