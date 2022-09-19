@@ -38,7 +38,6 @@ function Show({ show, setShow }) {
     if (!form && item) {
         setItem(undefined);
     }
-    console.log(data);
 
     return (
         <div className='User__header'>

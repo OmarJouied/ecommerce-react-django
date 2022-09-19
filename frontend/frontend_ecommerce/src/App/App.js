@@ -55,7 +55,7 @@ function App() {
 
   function Fetch(e = '') {
     if ( stop !== e || (log !== login) ) {
-      if (typeof login === 'boolean' && log === undefined) {
+      if (stop === e && typeof login === 'boolean' && log === undefined) {
         log = login;
         return;
       }
@@ -103,7 +103,6 @@ function App() {
       setComp(<User />);
     }
     else if (path === '/') {
-      console.log(data);
       Fetch();
       setShow(data);
       setComp(<Main />);
