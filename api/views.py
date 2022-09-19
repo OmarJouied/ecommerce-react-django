@@ -186,11 +186,12 @@ def api(request):
                 info = request.POST
                 try:
                     if p := Product.objects.get(id=info.get('id')):
-                        for image in p.images.all():
-                            os.remove(image.image.path)
-                        dire = image.image.path.rsplit('\\',1)[0]
-                        if not len(os.listdir(dire)):
-                            os.rmdir(dire)
+                        # # remove the comment if your hosting contain a file storage internal or equivalent
+                        # for image in p.images.all():
+                        #     os.remove(image.image.path)
+                        # dire = image.image.path.rsplit('\\',1)[0]
+                        # if not len(os.listdir(dire)):
+                        #     os.rmdir(dire)
                         p.delete()
                         message = 'Deleted Successfully'
                         error = 0
