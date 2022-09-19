@@ -38,7 +38,7 @@ function App() {
   });
   const [cat, setCat] = useState('');
   const [length, setLength] = useState();
-  const csrf = document.cookie.split(';').find(i => i.startsWith('csrftoken=')).split('=')[1];
+  const csrf = document.cookie.split(';').find(i => i.trim().startsWith('csrftoken=')).split('=')[1];
 
   function fetchLogin() {
         fetch('/api/log')
@@ -54,18 +54,20 @@ function App() {
   }
 
   function Fetch(e = '') {
-    console.log(log, login);
-    if ( stop !== e || !log !== !login ) {
+    if ( stop !== e || (log !== login) ) {
+      if (typeof login === 'boolean' && log === undefined) {
+        log = login;
+        return;
+      }
       log = login;
-      if (log !== undefined)
-        fetch(`/api/?${e}`)
-          .then(r => r.json())
-          .then(r => {
-            setShow(r);
-            setLoad(0);
-            return setData(r.length ? r : [1]);
-          })
-          .catch(e => console.log(e));
+      fetch(`/api/?${e}`)
+        .then(r => r.json())
+        .then(r => {
+          setShow(r);
+          setLoad(0);
+          return setData(r);
+        })
+        .catch(e => console.log(e));
       stop = e;
     }
   }
