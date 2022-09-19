@@ -54,6 +54,7 @@ function App() {
   }
 
   function Fetch(e = '') {
+    console.log(log, login);
     if ( stop !== e || !log !== !login ) {
       log = login;
       if (log !== undefined)
