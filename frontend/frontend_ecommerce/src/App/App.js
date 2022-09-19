@@ -103,6 +103,7 @@ function App() {
       setComp(<User />);
     }
     else if (path === '/') {
+      console.log(data);
       Fetch();
       setShow(data);
       setComp(<Main />);
