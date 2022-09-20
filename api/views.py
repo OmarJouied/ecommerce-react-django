@@ -56,6 +56,7 @@ def api(request):
                 return JsonResponse(Product.choices, safe=False)
             Products = []
             if category := request.GET.get('category'):
+                print(request.user.pk)
                 Products = Product.objects.exclude(piece=0).exclude(owner=request.user.pk).filter(category=category)
                 if not Products:
                     return JsonResponse({
